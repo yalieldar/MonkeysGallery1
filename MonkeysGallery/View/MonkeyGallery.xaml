@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MonkeysGallery.Models"
+             x:Class="MonkeysGallery.View.MonkeyGallery">
+    
+    <ScrollView>
+        <HorizontalStackLayout
+            Padding="10,0,10,0">
+
+
+            <Grid BindingContext="{Binding Monkey}" Padding="0,40,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"></RowDefinition>
+                    <RowDefinition Height="200"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Padding="30" Grid.Row="0" Grid.ColumnSpan="4" HorizontalOptions="Center" VerticalOptions="Center" Text="Monkey Gallery" TextColor="DeepPink" FontSize="30" FontAttributes="Bold" TextDecorations="Underline" ></Label>
+                <Button 
+            x:Name="left" IsEnabled="False"
+                    HorizontalOptions="Start"
+            BorderColor="DeepPink"
+            BorderWidth="3"
+            BackgroundColor="DeepPink"
+            Clicked="LeftBtnClicked"
+            CornerRadius="20"
+            HeightRequest="40"
+            WidthRequest="40"
+                    Grid.Column="0"
+                    Grid.Row="1">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe5c4;" />
+                    </Button.ImageSource>
+
+
+                </Button>
+                <Image x:DataType="Models:Monkey" 
+                   Source="{Binding Image}" 
+                   Grid.Column="1" Grid.Row="1" 
+                   HorizontalOptions="Center" HeightRequest="200" WidthRequest="200"
+                   ></Image>
+                <Label x:DataType="Models:Monkey" Text="{Binding Name}"
+                   FontSize="Body" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold" 
+                   Grid.Column="1" Grid.Row="2"
+                   Padding="0,10,0,0"></Label>
+                <Button
+                    x:Name="right"
+            HorizontalOptions="End"
+            BorderColor="DeepPink"
+            BorderWidth="3"
+            BackgroundColor="DeepPink"
+            Clicked="RightBtnClicked"
+            CornerRadius="20"
+            HeightRequest="40"
+            WidthRequest="40"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    >
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe5c8;" />
+                    </Button.ImageSource>
+
+
+                </Button>
+                <Button x:Name="details"
+                    Grid.Row="3" Grid.ColumnSpan="3" 
+                        VerticalOptions="Start"
+                      
+                    HorizontalOptions="Center" Text="More details" 
+                    CornerRadius="10" HeightRequest="40" WidthRequest="110" 
+                    BackgroundColor="DeepPink" Opacity="10"
+                    Clicked="DetailsClicked"
+                    ></Button>
+                <Grid x:Name="detailsgrid" 
+                      IsVisible="false" Grid.Row="3" Grid.Column="1" 
+                      VerticalOptions="Start" HorizontalOptions="Center"
+                      Padding="50,0,10,0">
+                    <VerticalStackLayout>
+                        <Label x:DataType="models:Monkey" FontSize="Body">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Location: " FontAttributes="Bold" TextColor="DeepPink"></Span>
+                                    <Span Text="{Binding Location}"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label x:DataType="models:Monkey" FontSize="Body">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Population: " FontAttributes="Bold" TextColor="DeepPink"></Span>
+                                    <Span Text="{Binding Population}"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border WidthRequest="200" Stroke="white" HorizontalOptions="Center"  Margin="0,0,50,0" >
+                            <Label x:DataType="models:Monkey" FontSize="Body">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Details: " FontAttributes="Bold" TextColor="DeepPink"></Span>
+                                        <Span Text="{Binding Details}" ></Span>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Border>
+                        <Button x:Name="hide" Margin="0,20,30,0"
+                     
+                    HorizontalOptions="Center" Text="Hide details" 
+                    CornerRadius="10" HeightRequest="40" WidthRequest="110" 
+                    BackgroundColor="DeepPink" Opacity="10"
+                    Clicked="DetailsClicked"
+                    ></Button>
+                    </VerticalStackLayout>
+                </Grid>
+            </Grid>
+        </HorizontalStackLayout>
+    </ScrollView>
+
+</ContentView>
