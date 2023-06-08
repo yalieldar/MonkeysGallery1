@@ -12,8 +12,12 @@ namespace MonkeysGallery.ViewModel
     {
         public ObservableCollection<Monkey> Monkeys { get; set; }   
         private Monkey monkey { get; set; }
-        public Monkey Monkey { get { return monkey; } set { if (value != monkey) { value = monkey; OnPropertyChanged(); } } }
+        public Monkey Monkey { get { return monkey; } set { if (value != monkey) {monkey=value; OnPropertyChanged(); } } }
 
+        public MonkeyViewModel()
+        {
+     
+        }
 
     }
 }
