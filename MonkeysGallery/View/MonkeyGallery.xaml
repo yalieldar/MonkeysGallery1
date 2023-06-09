@@ -60,11 +60,9 @@
                     </StackLayout>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
+            
         </CarouselView>
-        <IndicatorView x:Name="indicatorView"
-                   IndicatorColor="LightGray"
-                   SelectedIndicatorColor="DarkGray"
-                   HorizontalOptions="Center" />
+
     </StackLayout>
 
 </ContentPage>
