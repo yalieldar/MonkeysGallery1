@@ -24,6 +24,12 @@ namespace MonkeysGallery.Models
             Population = population;
         }
 
-       
+        public Monkey()
+        {
+           
+        }
+
+
+
     }
 }

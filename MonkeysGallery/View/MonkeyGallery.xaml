@@ -18,32 +18,53 @@
                        CornerRadius="5"
                        Margin="20"
                        HeightRequest="300"
+                       WidthRequest="200"        
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand">
                             <StackLayout>
                                 <Label Text="{Binding Name}"
                                FontAttributes="Bold"
-                               FontSize="18"
+                               FontSize="15"
+                               TextColor="DeepPink"        
                                HorizontalOptions="Center"
                                VerticalOptions="Center" />
                                 <Image Source="{Binding Image}"
                                Aspect="AspectFill"
-                               HeightRequest="150"
-                               WidthRequest="150"
-                               HorizontalOptions="Center" />
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               HorizontalOptions="Center">
+                                    <Image.Shadow>
+                                    <Shadow Brush="Black"
+                                     Offset="10,10"
+                                     Radius="15"
+                                     Opacity="0.8" />
+                              </Image.Shadow>
+                                    
+                                </Image>
+
                                 <Label Text="{Binding Location}"
-                               HorizontalOptions="Center" />
+                               HorizontalOptions="Center"
+                                       FontSize="13 "
+                                       TextColor="HotPink"/>
+                                
                                 <Label Text="{Binding Details}"
                                FontAttributes="Italic"
                                HorizontalOptions="Center"
-                               MaxLines="5"
-                               LineBreakMode="TailTruncation" />
+                               FontSize="10"
+                               MaxLines="20"
+                               LineBreakMode="WordWrap" />
+
+                               
                             </StackLayout>
                         </Frame>
                     </StackLayout>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
+        <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="DarkGray"
+                   HorizontalOptions="Center" />
     </StackLayout>
 
 </ContentPage>
